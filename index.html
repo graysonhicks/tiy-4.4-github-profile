@@ -4,38 +4,178 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GitHub</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
+    <nav class="navbar navbar-default navbar-fixed-top main-header-nav">
+      <div class="container main-header-nav-container">
+        <div class="navbar-header collapsed-menu-button-and-search">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">
-            <img alt="Brand" src="#">
+          <a class="navbar-brand github-logo-link" href="#">
+            <i class="fa fa-github github-logo"></i>
           </a>
-          <form class="navbar-form navbar-left" role="search">
+          <form class="navbar-left navbar-form" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" class="form-control input-sm" id="header-search-input" placeholder="Search GitHub">
             </div>
           </form>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                  <li><a href="#">Pull Requests</a></li>
-                  <li><a href="#">Issues</a></li>
-                  <li><a href="#">Gists</a></li>
+        <div class="collapse navbar-collapse header-content-navbar" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav main-header-list">
+                <li class="main-header-list-links"><a href="#">Pull Requests</a></li>
+                <li class="main-header-list-links"><a href="#">Issues</a></li>
+                <li class="main-header-list-links"><a href="#">Gists</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right header-icon-menu">
+            <li><a href="#"><i class="fa fa-bell"></i></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus"></i> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">New repository</a></li>
+                <li><a href="#">New organization</a></li>
               </ul>
-          </div>
+            </li>
+            <!-- DYNAMIC USER AVATAR
+
+            AND MENU LINKS HERE -->
+          </ul>
+        </div>
       </div>
     </nav>
+    <div class="main-content-container">
+      <div class="main-content container">
+        <div class="profile-content-columns-container">
+          <div class="col-md-3 sidebar-content-container">
+            <!--
 
+            USER INFO SIDEBAR INFO HERE
+
+           -->
+          </div>
+          <div class="col-md-9" id="main-repo-content-container">
+            <div id="repo-nav-container">
+            <!--
+            REPO NAV BAR HERE
+          -->
+
+            </div>
+            <div id="repo-list-container">
+            <script id="repo-list-template" type="text/x-handlebars-template">
+              <ul class="repo-list">
+                {{#each repo}}
+                  <div class="repo-list-items">
+                    <span class="repo-stats">{{language}} <i class="fa fa-star">{{stargazers_count}}</i><i class="fa fa-code-fork">{{forks_count}}</i></span>
+                    <h3 class="repo-names">{{name}}</h3>
+                    <h4 class="repo-updated-info">{{created_at}}</h4>
+                  </div>
+                {{/each}}
+              </ul>
+            </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+    TEMPLATES
+  -->
+  <!-- TOP NAV TEMPLATE -->
+    <script id="header-nav-avatar-and-dropdown" type="text/x-handlebars-template">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="header-github-avatar" src="{{avatar_url}}"> <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#"><p>Signed in as</p><p>{{login}}</p></a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="{{html_url}}">Your profile</a></li>
+          <li><a href="#">Your stars</a></li>
+          <li><a href="#">Explore</a></li>
+          <li><a href="#">Integrations</a></li>
+          <li><a href="#">Help</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Sign Out</a></li>
+        </ul>
+      </li>
+    </script>
+    <!-- SIDEBAR CONTENT TEMPLATE -->
+    <script id="sidebar-content-template" type="text/x-handlebars-template">
+      <img src="{{avatar_url}}" alt="">
+      <h1 class="main-name">{{name}}</h1>
+      <h3 class="name-subcaption">{{login}}</h3>
+      <hr>
+      <div><a href="mailto:{{email}}"><i class="fa fa-envelope-o"></i><span>{{email}}</span></a></div>
+      <div><i class="fa fa-clock-o"></i><span>{{created_at}}</span></div>
+      <hr>
+      <div class="follower-info">
+        <ul class="list-inline">
+          <li>
+            <a href="{{followers_url}}">
+              <h2>{{followers}}</h2>
+              <p>Followers</p>
+            </a>
+          </li>
+          <li>
+            <a href="#"></a>
+              <h2>0</h2>
+              <p>Starred</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{following_url}}">
+              <h2>{{following}}</h2>
+              <p>Following</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <h3>Organizations</h3>
+      <ul class="list-inline organizations-icon-list">
+        <li>
+          <a href="{{organizations_url}}">
+            <img src="https://avatars1.githubusercontent.com/u/16375347?v=3&s=84" alt="">
+          </a>
+        </li>
+      </ul>
+    </script>
+    <!-- REPO NAV TEMPLATE -->
+    <script id="repo-nav-template" type="text/x-handlebars-template">
+      <nav class="repo-tab-nav" role="navigation">
+        <button class="btn btn-default edit-profile-button"><i class="fa fa-pencil"></i>Edit Profile</button>
+        <ul class="nav nav-tabs">
+          <li role="presentation"><a href="https://github.com/{{login}}">Contributions</a></li>
+          <li role="presentation" class="active"><a href="https://github.com/{{login}}?tab=repositories">Repositories</a></li>
+          <li role="presentation"><a href="https://github.com/{{login}}?tab=activity">Public activity</a></li>
+        </ul>
+      </nav>
+      <div class="main-repo-content">
+        <div class="repo-nav-bar">
+          <button class="btn btn-default main-new-repo-button"><i class="fa fa-pencil"></i>New</button>
+          <ul class="repo-nav-bar-list list-inline">
+            <li class="repo-nav-bar-list-links"><a href="">All</a></li>
+            <li class="repo-nav-bar-list-links"><a href="">Public</a></li>
+            <li class="repo-nav-bar-list-links"><a href="">Private</a></li>
+            <li class="repo-nav-bar-list-links"><a href="">Sources</a></li>
+            <li class="repo-nav-bar-list-links"><a href="">Forks</a></li>
+            <li class="repo-nav-bar-list-links"><a href="">Mirrors</a></li>
+          </ul>
+          <form>
+            <div class="input-group search-input repo-search-form" role="search">
+              <input type="text" class="form-control" id="repo-search-field" placeholder="Find a repository...">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default search-button">Search</button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </script>
     <script src="scripts/bundle.js"></script>
   </body>
 </html>

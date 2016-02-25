@@ -1,17 +1,109 @@
-
+// Requires
 window.jQuery = $ = require('jquery');
 var handlebars = require('handlebars');
 var _ = require('underscore');
 var bootstrap = require('bootstrap-sass/assets/javascripts/bootstrap.min.js');
+var githubtoken = require('./githubtoken.js').token;
 
-console.log(bootstrap);
+// AJAX
 
 var username = "graysonhicks";
-var requri   = 'https://api.github.com/users/'+username;
-var repouri  = 'https://api.github.com/users/'+username+'/repos';
-var repositories;
+var userUrl   = 'https://api.github.com/users/' + username;
+var repoUrl  = 'https://api.github.com/users/' + username + '/repos';
 
-$.getJSON(requri, function(json){
-  user = json;
-  console.log(user);
-});
+// Functions
+
+if(typeof(githubtoken) !== "undefined"){
+  $.ajaxSetup({
+    headers: {
+      'Authorization': 'token ' + githubtoken,
+    }
+  });
+}
+
+pageLoad();
+
+function pageLoad(){
+  getUserData();
+  getUserRepos();
+}
+
+function getUserData(){
+  $.getJSON(userUrl, buildHeader);
+  $.getJSON(userUrl, buildSidebar);
+  $.getJSON(userUrl, buildRepoHeader);
+}
+
+function getUserRepos(){
+  $.getJSON(repoUrl, buildRepoList);
+ }
+
+function getDate(json){
+  var createdDate = new Date(json.created_at);
+  var month = new Array();
+      month[0] = "Jan";
+      month[1] = "Feb";
+      month[2] = "Mar";
+      month[3] = "Apr";
+      month[4] = "May";
+      month[5] = "Jun";
+      month[6] = "Jul";
+      month[7] = "Aug";
+      month[8] = "Sep";
+      month[9] = "Oct";
+      month[10] = "Nov";
+      month[11] = "Dec";
+  var monthAbbreviation = month[createdDate.getMonth()];
+  var dayCreated = createdDate.getDate();
+  var yearCreated = createdDate.getFullYear();
+  createdDate = monthAbbreviation + " " + dayCreated + ", " + yearCreated;
+  return createdDate;
+}
+
+function mostRecent(json){
+  json = _.sortBy(json, function(json) {
+    return json.pushed_at;
+  });
+  json.reverse();
+  return json;
+}
+
+// TEMPLATES
+
+function buildHeader(json){
+
+  var headerAvatarDropdownSource = $("#header-nav-avatar-and-dropdown").html();
+  var headerAvatarDropdownTemplate = handlebars.compile(headerAvatarDropdownSource);
+  var headerAvatarDropdownRenderedTemplate = headerAvatarDropdownTemplate(json);
+
+  $('.header-icon-menu').append(headerAvatarDropdownRenderedTemplate);
+}
+
+function buildSidebar(json){
+
+  json.created_at = getDate(json);
+  var sidebarSource = $("#sidebar-content-template").html();
+  var sidebarTemplate = handlebars.compile(sidebarSource);
+  var sidebarRenderedTemplate = sidebarTemplate(json);
+
+  $('.sidebar-content-container').html(sidebarRenderedTemplate);
+}
+
+function buildRepoHeader(json){
+
+  var RepoHeaderSource = $("#repo-nav-template").html();
+  var RepoHeaderTemplate = handlebars.compile(RepoHeaderSource);
+  var RepoHeaderRenderedTemplate = RepoHeaderTemplate(json);
+
+  $('#repo-nav-container').html(RepoHeaderRenderedTemplate);
+}
+
+function buildRepoList(json){
+  console.log(json);
+  json = mostRecent(json);
+  var RepoListSource = $("#repo-list-template").html();
+  var RepoListTemplate = handlebars.compile(RepoListSource);
+  var RepoListRenderedTemplate = RepoListTemplate({'repo': json});
+
+  $('#repo-list-container').html(RepoListRenderedTemplate);
+}
