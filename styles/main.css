@@ -5809,7 +5809,7 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-.fa.github-logo {
+.github-logo-link-header .fa.github-logo {
   color: #333333;
   font-size: 34px; }
 
@@ -5823,12 +5823,56 @@ button.close {
   color: #333333;
   font-size: 16px; }
 
+.main-avatar {
+  border-radius: 6px; }
+
+.main-name {
+  font-size: 26px;
+  font-weight: bold; }
+
+.name-subcaption {
+  font-size: 20px;
+  color: #666666;
+  font-weight: 300; }
+
 .repo-nav-bar {
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px; }
 
+.repo-nav-tabs li a {
+  color: #666666;
+  font-size: 14px; }
+.repo-nav-tabs li.active a {
+  color: #333333; }
+
+.btn.edit-profile-button {
+  text-decoration: none;
+  background-image: linear-gradient(#eee, #ddd);
+  border-color: #ccc;
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: bold; }
+
+#repo-search-field {
+  font-size: 13px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075); }
+  #repo-search-field:focus {
+    border-color: #51a7e8;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5); }
+
 .repo-list-items {
   border-bottom: 1px solid #ddd; }
+
+.repo-names a {
+  color: #4078c0; }
+
+.footer-list-container .navbar-right li a,
+.footer-list-container .navbar-left li a {
+  font-size: 12px; }
 
 .main-header-nav {
   padding: 0; }
@@ -5848,7 +5892,7 @@ button.close {
 #header-search-input {
   width: 370px; }
 
-a.github-logo-link {
+a.github-logo-link-header {
   padding: 0px;
   padding-top: 8px; }
 
@@ -5864,8 +5908,28 @@ a.github-logo-link {
   padding-left: 0px;
   padding-right: 0px; }
 
+.main-name {
+  margin-top: 12px;
+  margin-bottom: 0px; }
+
+.name-subcaption {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
 .repo-tab-nav {
-  margin-bottom: 20px; }
+  margin-bottom: 15px; }
+
+.btn.edit-profile-button {
+  padding: 2px 10px; }
+  .btn.edit-profile-button i {
+    padding-right: 3px; }
+
+.repo-nav-tabs li a {
+  padding: 8px 12px; }
+
+#repo-search-field {
+  width: 260px;
+  padding: 7px 8px; }
 
 .edit-profile-button {
   float: right; }
@@ -5881,6 +5945,43 @@ a.github-logo-link {
 
 .repo-stats {
   float: right; }
+
+.footer-container {
+  max-width: 80%;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 40px;
+  height: 100px; }
+
+.footer-nav {
+  width: 100%;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  border: none;
+  border-top: 1px solid #ddd;
+  background-color: transparent; }
+
+.footer-list-container {
+  width: 100%;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  padding-left: 0px;
+  padding-right: 0px; }
+  .footer-list-container .navbar-left,
+  .footer-list-container .navbar-right,
+  .footer-list-container .navbar-header {
+    padding-left: 0px;
+    padding-right: 0px; }
+
+#github-logo-link-footer {
+  float: none;
+  margin: 0px;
+  margin-left: 45%;
+  padding: 0px; }
+  #github-logo-link-footer i.github-logo {
+    font-size: 30px;
+    color: #ddd; }
 
 *,
 *::before,

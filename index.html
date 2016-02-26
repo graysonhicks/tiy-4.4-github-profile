@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GitHub</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
@@ -17,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand github-logo-link" href="#">
+          <a class="navbar-brand github-logo-link-header" href="#">
             <i class="fa fa-github github-logo"></i>
           </a>
           <form class="navbar-left navbar-form" role="search">
@@ -30,7 +31,7 @@
             <ul class="nav navbar-nav main-header-list">
                 <li class="main-header-list-links"><a href="#">Pull Requests</a></li>
                 <li class="main-header-list-links"><a href="#">Issues</a></li>
-                <li class="main-header-list-links"><a href="#">Gists</a></li>
+                <li class="main-header-list-links"><a href="#">Gist</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right header-icon-menu">
             <li><a href="#"><i class="fa fa-bell"></i></a></li>
@@ -66,22 +67,44 @@
 
             </div>
             <div id="repo-list-container">
-            <script id="repo-list-template" type="text/x-handlebars-template">
-              <ul class="repo-list">
-                {{#each repo}}
-                  <div class="repo-list-items">
-                    <span class="repo-stats">{{language}} <i class="fa fa-star">{{stargazers_count}}</i><i class="fa fa-code-fork">{{forks_count}}</i></span>
-                    <h3 class="repo-names">{{name}}</h3>
-                    <h4 class="repo-updated-info">{{created_at}}</h4>
-                  </div>
-                {{/each}}
-              </ul>
-            </script>
+
+            <!--
+            REPO LIST ITEMS HERE
+           -->
+
             </div>
           </div>
         </div>
       </div>
+      <div class="footer-container container">
+        <nav class="navbar navbar-default footer-nav">
+          <div class="container footer-list-container">
+            <ul class="list-inline navbar-left col-md-4">
+              <li>2016 Github, Inc.</li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+            <div class="navbar-header col-md-4">
+              <a class="navbar-brand" id="github-logo-link-footer" href="#">
+                <i class="fa fa-github github-logo"></i>
+              </a>
+            </div>
+            <ul class="list-inline navbar-right col-md-4">
+              <li><a href="#">Status</a></li>
+              <li><a href="#">API</a></li>
+              <li><a href="#">Training</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Pricing</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </div>
+
     <!--
     TEMPLATES
   -->
@@ -105,7 +128,7 @@
     </script>
     <!-- SIDEBAR CONTENT TEMPLATE -->
     <script id="sidebar-content-template" type="text/x-handlebars-template">
-      <img src="{{avatar_url}}" alt="">
+      <a href="https://github.com/settings/profile"><img class="main-avatar" src="{{avatar_url}}" alt=""></a>
       <h1 class="main-name">{{name}}</h1>
       <h3 class="name-subcaption">{{login}}</h3>
       <hr>
@@ -115,19 +138,19 @@
       <div class="follower-info">
         <ul class="list-inline">
           <li>
-            <a href="{{followers_url}}">
+            <a href="https://github.com/{{login}}/followers">
               <h2>{{followers}}</h2>
               <p>Followers</p>
             </a>
           </li>
           <li>
-            <a href="#"></a>
+            <a href="https://github.com/stars"></a>
               <h2>0</h2>
               <p>Starred</p>
             </a>
           </li>
           <li>
-            <a href="{{following_url}}">
+            <a href="https://github.com/{{login}}/following">
               <h2>{{following}}</h2>
               <p>Following</p>
             </a>
@@ -148,15 +171,15 @@
     <script id="repo-nav-template" type="text/x-handlebars-template">
       <nav class="repo-tab-nav" role="navigation">
         <button class="btn btn-default edit-profile-button"><i class="fa fa-pencil"></i>Edit Profile</button>
-        <ul class="nav nav-tabs">
-          <li role="presentation"><a href="https://github.com/{{login}}">Contributions</a></li>
-          <li role="presentation" class="active"><a href="https://github.com/{{login}}?tab=repositories">Repositories</a></li>
-          <li role="presentation"><a href="https://github.com/{{login}}?tab=activity">Public activity</a></li>
+        <ul class="nav nav-tabs repo-nav-tabs">
+          <li role="presentation"><a href="https://github.com/{{login}}"><i class="fa fa-plus-square-o"></i> Contributions</a></li>
+          <li role="presentation" class="active"><a href="https://github.com/{{login}}?tab=repositories"><span class="octicon octicon-repo"></span> Repositories</a></li>
+          <li role="presentation"><a href="https://github.com/{{login}}?tab=activity"><span class="octicon octicon-rss"></span> Public activity</a></li>
         </ul>
       </nav>
       <div class="main-repo-content">
         <div class="repo-nav-bar">
-          <button class="btn btn-default main-new-repo-button"><i class="fa fa-pencil"></i>New</button>
+          <button class="btn btn-default main-new-repo-button"><span class="octicon octicon-repo"></span>New</button>
           <ul class="repo-nav-bar-list list-inline">
             <li class="repo-nav-bar-list-links"><a href="">All</a></li>
             <li class="repo-nav-bar-list-links"><a href="">Public</a></li>
@@ -175,6 +198,22 @@
           </form>
         </div>
       </div>
+    </script>
+    <!-- REPO MAIN CONTENT LIST ITEMS -->
+    <script id="repo-list-template" type="text/x-handlebars-template">
+      <ul class="repo-list">
+        {{#each repo}}
+          <div class="repo-list-items">
+            <span class="repo-stats">
+              <span>{{language}}</span>
+              <a href="https://github.com/{{full_name}}/stargazers"><i class="fa fa-star">{{stargazers_count}}</i></a>
+              <a href="https://github.com/{{full_name}}/network"><i class="fa fa-code-fork">{{forks_count}}</i></a>
+            </span>
+            <h3 class="repo-names"><a href="https://github.com/{{full_name}}">{{name}}</a></h3>
+            <h4 class="repo-updated-info">{{pushed_at}}</h4>
+          </div>
+        {{/each}}
+      </ul>
     </script>
     <script src="scripts/bundle.js"></script>
   </body>

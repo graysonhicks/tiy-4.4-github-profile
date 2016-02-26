@@ -1,10 +1,13 @@
 $darkgrayfont: #333333
 $lightgrayborder: #ddd
+$reponavfontcolor: #666666
+$bluelinksfont: #4078c0
 // Nav
 
-.fa.github-logo
-  color: $darkgrayfont
-  font-size: 34px
+.github-logo-link-header
+  .fa.github-logo
+    color: $darkgrayfont
+    font-size: 34px
 
 .main-header-list
   li.main-header-list-links > a
@@ -20,13 +23,63 @@ $lightgrayborder: #ddd
 
 //Profile Sidebar
 
+.main-avatar
+  border-radius: 6px
+
+.main-name
+  font-size: 26px
+  font-weight: bold
+
+.name-subcaption
+  font-size: 20px
+  color: $reponavfontcolor
+  font-weight: 300
+
 // Repo Info
 
 .repo-nav-bar
   border-bottom: 1px solid $lightgrayborder
   padding-bottom: 10px
 
+.repo-nav-tabs
+  li
+    a
+      color: $reponavfontcolor
+      font-size: 14px
+  li.active
+    a
+      color: $darkgrayfont
+
+.btn.edit-profile-button
+  text-decoration: none
+  background-image: linear-gradient(#eee, #ddd)
+  border-color: #ccc
+  border: 1px solid #d5d5d5
+  border-radius: 3px
+  font-size: 13px
+  font-weight: bold
+
+#repo-search-field
+  font-size: 13px
+  color: #333
+  border: 1px solid #ccc
+  border-radius: 3px
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075)
+  &:focus
+    border-color: #51a7e8
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5)
+
 .repo-list-items
   border-bottom: 1px solid $lightgrayborder
 
+.repo-names
+  a
+    color: $bluelinksfont
+
 //Footer
+.footer-list-container
+  .navbar-right,
+  .navbar-left
+    li
+      a
+        font-size: 12px

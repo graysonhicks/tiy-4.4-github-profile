@@ -3,6 +3,7 @@ window.jQuery = $ = require('jquery');
 var handlebars = require('handlebars');
 var _ = require('underscore');
 var bootstrap = require('bootstrap-sass/assets/javascripts/bootstrap.min.js');
+var moment = require('moment');
 var githubtoken = require('./githubtoken.js').token;
 
 // AJAX
@@ -65,6 +66,12 @@ function mostRecent(json){
     return json.pushed_at;
   });
   json.reverse();
+
+  json = _.map(json, function(json, index){
+    var formattedDate = new Date(json.pushed_at);
+    json.pushed_at = moment(formattedDate).startOf('hour').fromNow();
+    return json;
+  });
   return json;
 }
 
@@ -80,7 +87,7 @@ function buildHeader(json){
 }
 
 function buildSidebar(json){
-
+  console.log(json);
   json.created_at = getDate(json);
   var sidebarSource = $("#sidebar-content-template").html();
   var sidebarTemplate = handlebars.compile(sidebarSource);
