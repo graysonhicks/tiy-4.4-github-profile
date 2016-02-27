@@ -2,7 +2,7 @@ $darkgrayfont: #333333
 $lightgrayborder: #ddd
 $reponavfontcolor: #666666
 $bluelinksfont: #4078c0
-
+$middlegrayfont: #888888
 *
   font-family: Helvetica
 
@@ -25,6 +25,33 @@ $bluelinksfont: #4078c0
     color: $darkgrayfont
     font-size: 16px
 
+.new-repo-new-org
+  li
+    a:hover
+      color: #fff
+      text-decoration: none
+      background-color: $bluelinksfont
+
+#header-user-dropdown-list
+  li
+    &:hover
+      color: #fff
+      text-decoration: none
+      background-color: $bluelinksfont
+    a
+      font-size: 13px
+      &:hover
+        color: #fff
+        text-decoration: none
+        background-color: $bluelinksfont
+  li:first-of-type
+    color: $reponavfontcolor
+    font-size: 13px
+    &:hover
+      background-color: white
+    p:nth-of-type(2)
+      font-weight: bold
+
 //Profile Sidebar
 
 .main-avatar
@@ -38,6 +65,31 @@ $bluelinksfont: #4078c0
   font-size: 20px
   color: $reponavfontcolor
   font-weight: 300
+
+.sidebar-mail-and-joined-icons
+  color: $middlegrayfont
+
+.sidebar-mail-and-joined-icons.fa-clock-o
+  font-size: 16px
+
+.followers-following-starred-list
+  li
+    &:hover
+      color: $bluelinksfont
+    a
+      text-decoration: none
+      &:hover
+        color: $bluelinksfont
+      h2
+        font-weight: bold
+        font-size: 28px
+        &:hover
+          color: $bluelinksfont
+      p
+        color: $middlegrayfont
+        font-size: 11px
+        &:hover
+          color: $bluelinksfont
 
 // Repo Info
 
@@ -55,13 +107,15 @@ $bluelinksfont: #4078c0
       color: $darkgrayfont
 
 .btn.edit-profile-button
-  text-decoration: none
   background-image: linear-gradient(#eee, #ddd)
   border-color: #ccc
   border: 1px solid #d5d5d5
   border-radius: 3px
-  font-size: 13px
-  font-weight: bold
+  a
+    font-size: 13px
+    font-weight: bold
+    text-decoration: none
+    color: $darkgrayfont
 
 #repo-search-field
   font-size: 13px
@@ -73,12 +127,59 @@ $bluelinksfont: #4078c0
     border-color: #51a7e8
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5)
 
+#repo-search-button
+  border-radius: 3px
+  font-weight: bold
+  color: $darkgrayfont
+  font-size: 13px
+  background-color: rgb(221, 221, 221)
+  background-image: linear-gradient(rgb(238, 238, 238), rgb(221, 221, 221))
+
 .repo-list-items
   border-bottom: 1px solid $lightgrayborder
+
+.repo-nav-bar-list-links.active
+  a
+    color: $darkgrayfont
+    font-weight: bold
+
+.main-new-repo-button
+  background-color: #60b044
+  background-image: linear-gradient(#8add6d, #60b044)
+  border-color: #5ca941
+  a
+    color: white
+    font-weight: bold
+    font-size: 13px
+    &:hover
+      text-decoration: none
 
 .repo-names
   a
     color: $bluelinksfont
+    font-size: 20px
+    font-weight: bold
+
+.repo-updated-info
+  font-size: 13px
+  color: $middlegrayfont
+
+.repo-stats
+  color: $middlegrayfont
+  font-size: 13px
+  font-weight: bold
+  a
+    color: $middlegrayfont
+    font-size: 13px
+    &:hover
+      color: $bluelinksfont
+      text-decoration: none
+
+#star-count-icon
+  font-size: 14px
+
+#fork-count-icon
+  font-size: 16px
 
 //Footer
 .footer-list-container
@@ -87,3 +188,5 @@ $bluelinksfont: #4078c0
     li
       a
         font-size: 12px
+        &:hover
+          color: $bluelinksfont

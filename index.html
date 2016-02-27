@@ -18,30 +18,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand github-logo-link-header" href="#">
+          <a class="navbar-brand github-logo-link-header" href="http://www.github.com">
             <i class="fa fa-github github-logo"></i>
           </a>
-          <form class="navbar-left navbar-form" role="search">
+          <form class="navbar-left navbar-form" id="user-search-form" role="search">
             <div class="form-group">
-              <input type="text" class="form-control input-sm" id="header-search-input" placeholder="Search GitHub">
+              <input type="text" class="form-control input-sm" id="header-search-input" placeholder="Enter a username!">
             </div>
           </form>
         </div>
         <div class="collapse navbar-collapse header-content-navbar" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav main-header-list">
-                <li class="main-header-list-links"><a href="#">Pull Requests</a></li>
-                <li class="main-header-list-links"><a href="#">Issues</a></li>
-                <li class="main-header-list-links"><a href="#">Gist</a></li>
+                <li class="main-header-list-links"><a href="http://github.com/pulls">Pull Requests</a></li>
+                <li class="main-header-list-links"><a href="https://github.com/issues">Issues</a></li>
+                <li class="main-header-list-links"><a href="https://gist.github.com">Gist</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right header-icon-menu">
-            <li><a href="#"><i class="fa fa-bell"></i></a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus"></i> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">New repository</a></li>
-                <li><a href="#">New organization</a></li>
-              </ul>
-            </li>
             <!-- DYNAMIC USER AVATAR
 
             AND MENU LINKS HERE -->
@@ -81,24 +73,24 @@
           <div class="container footer-list-container">
             <ul class="list-inline navbar-left col-md-4">
               <li>2016 Github, Inc.</li>
-              <li><a href="#">Terms</a></li>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Security</a></li>
-              <li><a href="#">Help</a></li>
+              <li><a href="https://help.github.com/articles/github-terms-of-service/">Terms</a></li>
+              <li><a href="https://help.github.com/articles/github-privacy-policy/">Privacy</a></li>
+              <li><a href="https://help.github.com/articles/github-security/">Security</a></li>
+              <li><a href="https://help.github.com">Help</a></li>
             </ul>
             <div class="navbar-header col-md-4">
-              <a class="navbar-brand" id="github-logo-link-footer" href="#">
+              <a class="navbar-brand" id="github-logo-link-footer" href="https://github.com">
                 <i class="fa fa-github github-logo"></i>
               </a>
             </div>
             <ul class="list-inline navbar-right col-md-4">
-              <li><a href="#">Status</a></li>
-              <li><a href="#">API</a></li>
-              <li><a href="#">Training</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Pricing</a></li>
+              <li><a href="https://status.github.com">Status</a></li>
+              <li><a href="https://developer.github.com">API</a></li>
+              <li><a href="https://training.github.com">Training</a></li>
+              <li><a href="https://github.myshopify.com">Shop</a></li>
+              <li><a href="https://github.com/blog">Blog</a></li>
+              <li><a href="https://github.com/about">About</a></li>
+              <li><a href="https://github.com/pricing">Pricing</a></li>
             </ul>
           </div>
         </nav>
@@ -110,48 +102,64 @@
   -->
   <!-- TOP NAV TEMPLATE -->
     <script id="header-nav-avatar-and-dropdown" type="text/x-handlebars-template">
+      <li><a href="https://github.com/notifications"><i class="fa fa-bell"></i></a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus"></i> <span class="caret"></span></a>
+        <ul class="dropdown-menu new-repo-new-org">
+          <li><a href="https://github.com/new">New repository</a></li>
+          <li><a href="https://github.com/organizations/new">New organization</a></li>
+        </ul>
+      </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="header-github-avatar" src="{{avatar_url}}"> <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#"><p>Signed in as</p><p>{{login}}</p></a></li>
+        <ul class="dropdown-menu" id="header-user-dropdown-list">
+          <li><p>Signed in as</p><p>{{login}}</p></li>
           <li role="separator" class="divider"></li>
-          <li><a href="{{html_url}}">Your profile</a></li>
-          <li><a href="#">Your stars</a></li>
-          <li><a href="#">Explore</a></li>
-          <li><a href="#">Integrations</a></li>
-          <li><a href="#">Help</a></li>
+          <li><a href="https://github.com/{{login}}">Your profile</a></li>
+          <li><a href="https://github.com/stars">Your stars</a></li>
+          <li><a href="https://github.com/explore">Explore</a></li>
+          <li><a href="https://github.com/integrations">Integrations</a></li>
+          <li><a href="https://help.github.com">Help</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="#">Settings</a></li>
-          <li><a href="#">Sign Out</a></li>
+          <li><a href="https://github.com/settings/profile">Settings</a></li>
+          <li><a href="https://github.com">Sign Out</a></li>
         </ul>
       </li>
     </script>
     <!-- SIDEBAR CONTENT TEMPLATE -->
     <script id="sidebar-content-template" type="text/x-handlebars-template">
-      <a href="https://github.com/settings/profile"><img class="main-avatar" src="{{avatar_url}}" alt=""></a>
-      <h1 class="main-name">{{name}}</h1>
-      <h3 class="name-subcaption">{{login}}</h3>
+      <a href="https://github.com/settings/profile"><img class="main-avatar" src="{{json.avatar_url}}" alt=""></a>
+      <h1 class="main-name">{{json.name}}</h1>
+      <h3 class="name-subcaption">{{json.login}}</h3>
       <hr>
-      <div><a href="mailto:{{email}}"><i class="fa fa-envelope-o"></i><span>{{email}}</span></a></div>
-      <div><i class="fa fa-clock-o"></i><span>{{created_at}}</span></div>
+      <div>
+        <span class="octicon octicon-location sidebar-mail-and-joined-icons"></span>
+        <span>{{json.location}}</span>
+      </div>
+      <div>
+        <a href="mailto:{{json.email}}"> <i class="fa fa-envelope-o sidebar-mail-and-joined-icons"> </i> <span>{{json.email}}</span></a>
+      </div>
+      <div>
+        <i class="fa fa-clock-o sidebar-mail-and-joined-icons"></i><span>Joined on {{json.created_at}}</span>
+      </div>
       <hr>
       <div class="follower-info">
-        <ul class="list-inline">
+        <ul class="list-inline followers-following-starred-list">
           <li>
-            <a href="https://github.com/{{login}}/followers">
-              <h2>{{followers}}</h2>
+            <a href="https://github.com/{{json.login}}/followers">
+              <h2>{{json.followers}}</h2>
               <p>Followers</p>
             </a>
           </li>
           <li>
-            <a href="https://github.com/stars"></a>
+            <a href="https://github.com/stars">
               <h2>0</h2>
               <p>Starred</p>
             </a>
           </li>
           <li>
-            <a href="https://github.com/{{login}}/following">
-              <h2>{{following}}</h2>
+            <a href="https://github.com/{{json.login}}/following">
+              <h2>{{json.following}}</h2>
               <p>Following</p>
             </a>
           </li>
@@ -160,17 +168,19 @@
       <hr>
       <h3>Organizations</h3>
       <ul class="list-inline organizations-icon-list">
+        {{#each orgJSON}}
         <li>
-          <a href="{{organizations_url}}">
-            <img src="https://avatars1.githubusercontent.com/u/16375347?v=3&s=84" alt="">
+          <a href="{{url}}">
+            <img src="{{avatar_url}}" alt="">
           </a>
         </li>
+        {{/each}}
       </ul>
     </script>
     <!-- REPO NAV TEMPLATE -->
     <script id="repo-nav-template" type="text/x-handlebars-template">
       <nav class="repo-tab-nav" role="navigation">
-        <button class="btn btn-default edit-profile-button"><i class="fa fa-pencil"></i>Edit Profile</button>
+        <button class="btn btn-default edit-profile-button"><a href="https://github.com/settings/profile"><i class="fa fa-pencil"></i>Edit Profile</a></button>
         <ul class="nav nav-tabs repo-nav-tabs">
           <li role="presentation"><a href="https://github.com/{{login}}"><i class="fa fa-plus-square-o"></i> Contributions</a></li>
           <li role="presentation" class="active"><a href="https://github.com/{{login}}?tab=repositories"><span class="octicon octicon-repo"></span> Repositories</a></li>
@@ -179,20 +189,20 @@
       </nav>
       <div class="main-repo-content">
         <div class="repo-nav-bar">
-          <button class="btn btn-default main-new-repo-button"><span class="octicon octicon-repo"></span>New</button>
+          <button class="btn btn-default main-new-repo-button"><a href="https://github.com/new"><span class="octicon octicon-repo"></span>New</a></button>
           <ul class="repo-nav-bar-list list-inline">
-            <li class="repo-nav-bar-list-links"><a href="">All</a></li>
-            <li class="repo-nav-bar-list-links"><a href="">Public</a></li>
-            <li class="repo-nav-bar-list-links"><a href="">Private</a></li>
-            <li class="repo-nav-bar-list-links"><a href="">Sources</a></li>
-            <li class="repo-nav-bar-list-links"><a href="">Forks</a></li>
-            <li class="repo-nav-bar-list-links"><a href="">Mirrors</a></li>
+            <li class="repo-nav-bar-list-links active" id="all-repos-button" value="all"><a href="">All</a></li>
+            <li class="repo-nav-bar-list-links" id="public-repos-button"><a href="">Public</a></li>
+            <li class="repo-nav-bar-list-links" id="private-repos-button"><a href="">Private</a></li>
+            <li class="repo-nav-bar-list-links" id="sources-repos-button"><a href="">Sources</a></li>
+            <li class="repo-nav-bar-list-links" id="fork-repos-button"><a href="">Forks</a></li>
+            <li class="repo-nav-bar-list-links" id="mirrors-repos-button"><a href="">Mirrors</a></li>
           </ul>
           <form>
             <div class="input-group search-input repo-search-form" role="search">
               <input type="text" class="form-control" id="repo-search-field" placeholder="Find a repository...">
               <span class="input-group-btn">
-                <button type="submit" class="btn btn-default search-button">Search</button>
+                <button type="submit" class="btn btn-default" id="repo-search-button">Search</button>
               </span>
             </div>
           </form>
@@ -206,11 +216,11 @@
           <div class="repo-list-items">
             <span class="repo-stats">
               <span>{{language}}</span>
-              <a href="https://github.com/{{full_name}}/stargazers"><i class="fa fa-star">{{stargazers_count}}</i></a>
-              <a href="https://github.com/{{full_name}}/network"><i class="fa fa-code-fork">{{forks_count}}</i></a>
+              <a href="https://github.com/{{full_name}}/stargazers"><i id="star-count-icon" class="fa fa-star"></i>{{stargazers_count}}</a>
+              <a href="https://github.com/{{full_name}}/network"><i id="fork-count-icon" class="fa fa-code-fork"></i>{{forks_count}}</a>
             </span>
             <h3 class="repo-names"><a href="https://github.com/{{full_name}}">{{name}}</a></h3>
-            <h4 class="repo-updated-info">{{pushed_at}}</h4>
+            <h4 class="repo-updated-info">Updated {{pushed_at}}</h4>
           </div>
         {{/each}}
       </ul>
