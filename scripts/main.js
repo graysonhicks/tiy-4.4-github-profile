@@ -4,7 +4,7 @@ var handlebars = require('handlebars');
 var _ = require('underscore');
 var bootstrap = require('bootstrap-sass/assets/javascripts/bootstrap.min.js');
 var moment = require('moment');
-var githubtoken = require('./githubtoken.js').token;
+// var githubtoken = require('./githubtoken.js').token;
 //
 // AJAX
 //
@@ -20,13 +20,13 @@ var orgUrl = function(){
 };
 var orgJSON = [];
 
-if(typeof(githubtoken) !== "undefined"){
-  $.ajaxSetup({
-    headers: {
-      'Authorization': 'token ' + githubtoken,
-    }
-  });
-}
+// if(typeof(githubtoken) !== "undefined"){
+//   $.ajaxSetup({
+//     headers: {
+//       'Authorization': 'token ' + githubtoken,
+//     }
+//   });
+// }
 
 pageLoad();
 
