@@ -21,13 +21,13 @@ var orgUrl = function(){
 };
 var orgJSON = [];
 
-// if(typeof(githubtoken) !== "undefined"){
-//   $.ajaxSetup({
-//     headers: {
-//       'Authorization': 'token ' + githubtoken,
-//     }
-//   });
-// }
+if(typeof(githubtoken) !== "undefined"){
+  $.ajaxSetup({
+    headers: {
+      'Authorization': 'token ' + githubtoken,
+    }
+  });
+}
 
 pageLoad();
 
