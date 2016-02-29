@@ -6148,16 +6148,63 @@ h3.repo-names {
     font-size: 30px;
     color: #ddd; }
 
+@media (max-width: 1024px) {
+  .repo-nav-bar-list {
+    float: left;
+    padding-left: 15px;
+    margin-bottom: 25px; }
+
+  .main-new-repo-button {
+    float: left; }
+
+  .followers-following-starred-list li {
+    padding-right: 5px; }
+
+  #repo-search-field {
+    width: 365px; }
+
+  #repo-search-button {
+    margin-right: 85px; }
+
+  #github-logo-link-footer {
+    margin-left: 45%; }
+
+  .footer-container {
+    max-width: 100%; } }
+@media (max-width: 1023px) and (min-width: 768px) {
+  .footer-container {
+    max-width: 80%; }
+
+  .followers-following-starred-list li {
+    padding-right: 5px; }
+
+  #github-logo-link-footer {
+    margin-left: 65%; } }
+@media (max-width: 768px) {
+  .main-content-container {
+    padding-top: 100px; }
+
+  .main-header-nav-container {
+    margin: 10px;
+    max-width: 95%; }
+
+  #header-search-input {
+    width: 275px; }
+
+  .footer-list-container .navbar-left li,
+  .footer-list-container .navbar-right li {
+    padding-left: 2px;
+    padding-right: 2px; } }
 @media (max-width: 736px) {
   .main-content-container {
-    padding-top: 65px; }
+    padding-top: 75px; }
 
   #user-search-form {
     border: none;
     padding: 0px; }
 
   #header-search-input {
-    width: 275px; }
+    width: 250px; }
 
   .collapsed-menu-button-and-search button.navbar-toggle {
     margin-right: 0px; }
@@ -6208,43 +6255,84 @@ h3.repo-names {
     padding-top: 0px; }
     .footer-list-container .navbar-left li:first-of-type {
       display: block;
-      margin-left: 39%; }
+      margin-left: 44%; }
     .footer-list-container .navbar-left li:nth-of-type(2) {
-      margin-left: 31%; }
+      margin-left: 39%; }
     .footer-list-container .navbar-right {
-      margin-left: 20%; } }
+      margin-left: 31%; }
+
+  #github-logo-link-footer {
+    margin-left: 49%; } }
 @media (max-width: 735px) {
   .footer-list-container {
     padding-top: 0px; }
     .footer-list-container .navbar-left li:first-of-type {
       display: block;
-      margin-left: 37%; }
+      margin-left: 42%; }
     .footer-list-container .navbar-left li:nth-of-type(2) {
       margin-left: 29%; }
     .footer-list-container .navbar-right {
       margin-left: 18%; } }
+.footer-list-container {
+  padding-top: 0px; }
+  .footer-list-container .navbar-left li:first-of-type {
+    display: block;
+    margin-left: 44%; }
+  .footer-list-container .navbar-left li:nth-of-type(2) {
+    margin-left: 39%; }
+  .footer-list-container .navbar-right {
+    margin-left: 30%; }
+
+#github-logo-link-footer {
+  margin-left: 49%; }
+
 @media (max-width: 666px) {
   .footer-list-container .navbar-left li:first-of-type {
     display: block;
-    margin-left: 35%; }
+    margin-left: 40%; }
   .footer-list-container .navbar-left li:nth-of-type(2) {
     margin-left: 27%; }
   .footer-list-container .navbar-right {
     margin-left: 12%; } }
+.footer-list-container {
+  padding-top: 0px; }
+  .footer-list-container .navbar-left li:first-of-type {
+    display: block;
+    margin-left: 42%; }
+  .footer-list-container .navbar-left li:nth-of-type(2) {
+    margin-left: 37%; }
+  .footer-list-container .navbar-right {
+    margin-left: 27%; }
+
+#github-logo-link-footer {
+  margin-left: 49%; }
+
 @media (max-width: 567px) {
   .footer-list-container .navbar-left li:first-of-type {
     display: block;
-    margin-left: 33%; }
+    margin-left: 37%; }
   .footer-list-container .navbar-left li:nth-of-type(2) {
     margin-left: 25%; }
   .footer-list-container .navbar-right {
     margin-left: 9%; } }
+.footer-list-container {
+  padding-top: 0px; }
+  .footer-list-container .navbar-left li:first-of-type {
+    display: block;
+    margin-left: 40%; }
+  .footer-list-container .navbar-left li:nth-of-type(2) {
+    margin-left: 35%; }
+  .footer-list-container .navbar-right {
+    margin-left: 23%; }
+
+#github-logo-link-footer {
+  margin-left: 49%; }
+
 @media (max-width: 479px) {
   .main-content-container {
-    padding-top: 110px; }
+    padding-top: 90px; }
 
   #header-search-input {
-    width: 335px;
     margin-left: 3%; }
 
   .footer-list-container .navbar-left li:first-of-type {
@@ -6254,10 +6342,22 @@ h3.repo-names {
     margin-left: 21%; }
   .footer-list-container .navbar-right {
     margin-left: 3%; } }
+@media (max-width: 414px) {
+  .footer-list-container .navbar-left li:first-of-type {
+    display: block;
+    margin-left: 40%; }
+  .footer-list-container .navbar-left li:nth-of-type(2) {
+    margin-left: 30%; }
+  .footer-list-container .navbar-right {
+    margin-left: 17%; }
+
+  #github-logo-link-footer {
+    margin-left: 48%; } }
 @media (max-width: 413px) {
   #header-search-input {
-    width: 290px;
-    margin-left: 5%; }
+    width: 200px;
+    margin-left: 5%;
+    margin-top: 15px; }
 
   .collapsed-menu-button-and-search button.navbar-toggle {
     margin-right: 8px; }
@@ -6287,10 +6387,15 @@ h3.repo-names {
     .footer-list-container .navbar-right li {
       padding-left: 2px;
       padding-right: 1px; } }
+@media (max-width: 375px) {
+  .footer-list-container .navbar-left li:first-of-type {
+    display: block;
+    margin-left: 38%; }
+  .footer-list-container .navbar-left li:nth-of-type(2) {
+    margin-left: 28%; }
+  .footer-list-container .navbar-right {
+    margin-left: 17%; } }
 @media (max-width: 350px) {
-  #header-search-input {
-    width: 245px; }
-
   .collapsed-menu-button-and-search button.navbar-toggle {
     margin-top: 12px; }
 
@@ -6301,13 +6406,19 @@ h3.repo-names {
     width: 240px;
     height: 240px; }
 
+  .footer-list-container .navbar-left li:first-of-type {
+    display: block;
+    margin-left: 33%; }
   .footer-list-container .navbar-left li:nth-of-type(2) {
-    margin-left: 13%; }
+    margin-left: 22%; }
   .footer-list-container .navbar-right {
-    margin-left: 0px; }
+    margin-left: 10%; }
     .footer-list-container .navbar-right li {
       padding-left: 1px;
-      padding-right: 1px; } }
+      padding-right: 1px; }
+
+  #github-logo-link-footer {
+    margin-left: 45%; } }
 *,
 *::before,
 *::after {
