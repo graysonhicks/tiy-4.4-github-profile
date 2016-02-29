@@ -4673,7 +4673,7 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions['.hbs'] = extension;
 }
 
-},{"../dist/cjs/handlebars":2,"../dist/cjs/handlebars/compiler/printer":12,"fs":49}],32:[function(require,module,exports){
+},{"../dist/cjs/handlebars":2,"../dist/cjs/handlebars/compiler/printer":12,"fs":48}],32:[function(require,module,exports){
 /*
  * Copyright 2009-2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
@@ -7917,7 +7917,7 @@ function amdefine(module, requireFn) {
 module.exports = amdefine;
 
 }).call(this,require('_process'),"/../node_modules/handlebars/node_modules/source-map/node_modules/amdefine/amdefine.js")
-},{"_process":51,"path":50}],44:[function(require,module,exports){
+},{"_process":50,"path":49}],44:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.1
  * http://jquery.com/
@@ -22908,16 +22908,14 @@ return jQuery;
 }.call(this));
 
 },{}],47:[function(require,module,exports){
-module.exports = {'token': '3c780d4d5692c9163428dcd2bad9f97c4463c8f5'};
-
-},{}],48:[function(require,module,exports){
 // Requires
 window.jQuery = $ = require('jquery');
 var handlebars = require('handlebars');
 var _ = require('underscore');
 var bootstrap = require('bootstrap-sass/assets/javascripts/bootstrap.min.js');
 var moment = require('moment');
-var githubtoken = require('./githubtoken.js').token;
+var githubtoken;
+// = require('./githubtoken.js').token; 
 //
 // AJAX
 //
@@ -23187,9 +23185,9 @@ function buildRepoList(json){
   $('#repo-list-container').html(RepoListRenderedTemplate);
 }
 
-},{"./githubtoken.js":47,"bootstrap-sass/assets/javascripts/bootstrap.min.js":1,"handlebars":31,"jquery":44,"moment":45,"underscore":46}],49:[function(require,module,exports){
+},{"bootstrap-sass/assets/javascripts/bootstrap.min.js":1,"handlebars":31,"jquery":44,"moment":45,"underscore":46}],48:[function(require,module,exports){
 
-},{}],50:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -23417,7 +23415,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":51}],51:[function(require,module,exports){
+},{"_process":50}],50:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -23510,4 +23508,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[48]);
+},{}]},{},[47]);

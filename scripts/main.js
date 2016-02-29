@@ -5,7 +5,7 @@ var _ = require('underscore');
 var bootstrap = require('bootstrap-sass/assets/javascripts/bootstrap.min.js');
 var moment = require('moment');
 var githubtoken;
-// = require('./githubtoken.js').token; removed for gh-pages
+// = require('./githubtoken.js').token; 
 //
 // AJAX
 //

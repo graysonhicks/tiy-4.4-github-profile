@@ -6273,16 +6273,16 @@ h3.repo-names {
       margin-left: 29%; }
     .footer-list-container .navbar-right {
       margin-left: 18%; } }
-.footer-list-container {
-  padding-top: 0px; }
-  .footer-list-container .navbar-left li:first-of-type {
-    display: block;
-    margin-left: 44%; }
-  .footer-list-container .navbar-left li:nth-of-type(2) {
-    margin-left: 39%; }
-  .footer-list-container .navbar-right {
-    margin-left: 30%; }
-
+@media (max-width: 667px) {
+  .footer-list-container {
+    padding-top: 0px; }
+    .footer-list-container .navbar-left li:first-of-type {
+      display: block;
+      margin-left: 44%; }
+    .footer-list-container .navbar-left li:nth-of-type(2) {
+      margin-left: 39%; }
+    .footer-list-container .navbar-right {
+      margin-left: 30%; } }
 #github-logo-link-footer {
   margin-left: 49%; }
 
@@ -6294,16 +6294,16 @@ h3.repo-names {
     margin-left: 27%; }
   .footer-list-container .navbar-right {
     margin-left: 12%; } }
-.footer-list-container {
-  padding-top: 0px; }
-  .footer-list-container .navbar-left li:first-of-type {
-    display: block;
-    margin-left: 42%; }
-  .footer-list-container .navbar-left li:nth-of-type(2) {
-    margin-left: 37%; }
-  .footer-list-container .navbar-right {
-    margin-left: 27%; }
-
+@media (max-width: 568px) {
+  .footer-list-container {
+    padding-top: 0px; }
+    .footer-list-container .navbar-left li:first-of-type {
+      display: block;
+      margin-left: 42%; }
+    .footer-list-container .navbar-left li:nth-of-type(2) {
+      margin-left: 37%; }
+    .footer-list-container .navbar-right {
+      margin-left: 27%; } }
 #github-logo-link-footer {
   margin-left: 49%; }
 
@@ -6315,16 +6315,16 @@ h3.repo-names {
     margin-left: 25%; }
   .footer-list-container .navbar-right {
     margin-left: 9%; } }
-.footer-list-container {
-  padding-top: 0px; }
-  .footer-list-container .navbar-left li:first-of-type {
-    display: block;
-    margin-left: 40%; }
-  .footer-list-container .navbar-left li:nth-of-type(2) {
-    margin-left: 35%; }
-  .footer-list-container .navbar-right {
-    margin-left: 23%; }
-
+@media (max-width: 480px) {
+  .footer-list-container {
+    padding-top: 0px; }
+    .footer-list-container .navbar-left li:first-of-type {
+      display: block;
+      margin-left: 40%; }
+    .footer-list-container .navbar-left li:nth-of-type(2) {
+      margin-left: 35%; }
+    .footer-list-container .navbar-right {
+      margin-left: 23%; } }
 #github-logo-link-footer {
   margin-left: 49%; }
 
